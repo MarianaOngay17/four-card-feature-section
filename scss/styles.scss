@@ -1,0 +1,152 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.header{
+    margin-top: 3rem;
+    font-family: v.$fuente_principal;
+    text-align: center;
+    color: v.$grey400;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__title{
+
+        font-weight: v.$extralight;
+        font-size: 1.5rem;
+
+        @include m.desktop {
+            font-size: 1.8rem;
+        }
+
+        &--bold{
+            font-weight: v.$semibold;
+            color: v.$grey500;
+        }
+    }
+
+    &__description{
+        margin: 1rem 0 2rem 0;
+        font-weight: v.$regular;
+        color: v.$grey500;
+        font-size: 0.9rem;
+        max-width: 19rem;
+        
+        @include m.desktop {
+            max-width: 30rem;
+        }
+       
+    }
+}
+
+.container{
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+
+    @include m.desktop {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "supervisor builder calculator"
+            "supervisor karma calculator";
+        max-width: 1100px;
+        margin: 0 auto;
+
+        .card:nth-child(1) {
+            grid-area: supervisor;
+            align-self: center;
+        }
+
+        .card:nth-child(2) {
+            grid-area: builder;
+        }
+
+        .card:nth-child(3) {
+            grid-area: karma;
+        }
+
+        .card:nth-child(4) {
+            grid-area: calculator;
+            align-self: center;
+        }
+    }
+
+}
+
+.card{
+    background-color: v.$white;
+    overflow: hidden;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: v.$fuente_principal;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+
+    border-top: 4px solid;
+
+    &--supervisor{
+        border-color: v.$cyan;
+    }
+
+    &--builder{
+        border-color: v.$red;
+    }
+
+    &--karma{
+        border-color: v.$orange;
+    }
+
+    &--calculator{
+        border-color: v.$blue;
+    }
+
+    &__title{
+        font-weight: v.$semibold;
+        color: v.$grey500;   
+        font-size: 1.2rem;       
+    }
+
+    &__description{
+        margin: 0.5rem 0 1rem 0;
+        text-align: left;
+        font-weight: v.$regular;
+        font-size: 0.8rem;
+        color: v.$grey400;   
+    }
+
+    &__image{
+        align-self: flex-end;
+    }
+
+   
+}
+
+
+
+
+
+.attribution{
+    margin-bottom: 0;
+    text-align: center;
+    font-family: v.$fuente_principal;
+    font-size: 0.8rem;
+    color: v.$grey500;
+
+    a {
+        color: v.$blue;
+    }
+    
+    @include m.desktop{
+        margin-top: 1rem;
+    }
+    
+}
