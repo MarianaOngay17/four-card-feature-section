@@ -8,6 +8,7 @@ Diseño finalizado
 
 
 Diseño movil
+
 ![alt text](movil.png)
 
 
